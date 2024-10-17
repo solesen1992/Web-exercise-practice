@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Exercise_MVCStarter.Models.Customer
+
+@{
+    ViewData["Title"] = "Customer Details";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model == null)
+{
+    <p>No customer found.</p>
+}
+else
+{
+    <ul>
+        <li><strong>Customer ID:</strong> @Model.Id</li>
+        <li><strong>First Name:</strong> @Model.FirstName</li>
+        <li><strong>Last Name:</strong> @Model.LastName</li>
+    </ul>
+}
+
+<!-- Go back to customer list link -->
+<p>
+    <a href="@Url.Action("Index", "Customers")">Go back to list</a>
+</p>

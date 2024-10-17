@@ -1,23 +1,9 @@
-﻿@model IEnumerable<Exercise_MVCStarter.Models.Customer>
-
-@*
+﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
-    HTML unordered list: https://www.w3schools.com/html/html_lists.asp
 *@
 @{
 }
 
-<!-- Exercise 1 -->
-<h2>Customer List</h2>
-<ul>
-    @foreach (var customer in Model)
-    {
-        <li>@customer.FirstName @customer.LastName (ID: @customer.Id)</li>
-    }
-</ul>
-
-<!-- Exercise 2-->
 @{
     ViewData["Title"] = "Search for Customer";
 }
