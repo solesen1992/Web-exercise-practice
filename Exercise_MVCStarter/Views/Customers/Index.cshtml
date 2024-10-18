@@ -1,33 +1,56 @@
 ﻿@model IEnumerable<Exercise_MVCStarter.Models.Customer>
 
-@*
+<!--
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    A comment block providing a link to Microsoft's documentation for enabling MVC in empty projects.
+    This is purely for developer reference and does not appear on the page.
 
     HTML unordered list: https://www.w3schools.com/html/html_lists.asp
-*@
+    Another comment providing a link to HTML documentation for unordered lists, as the customer list will be rendered as an HTML unordered list (<ul>).
+-->
 @{
+    <!-- An empty Razor code block. This can be used for server-side logic but is not used here. -->
 }
 
 <!-- Exercise 1 -->
 <h2>Customer List</h2>
+<!-- The title of this section is "Customer List" and is rendered inside an <h2> heading. -->
+
 <ul>
     @foreach (var customer in Model)
     {
+        <!-- Iterates through each `customer` object in the `Model`, which is a collection of customers. -->
+        <!-- For each customer in the list, it creates a list item (<li>) displaying the customer's First Name, Last Name, and ID. -->
         <li>@customer.FirstName @customer.LastName (ID: @customer.Id)</li>
     }
 </ul>
-
+<!-- The customer details (First Name, Last Name, and ID) are dynamically inserted into an unordered list (<ul>). -->
+<!-- Each customer is represented by an <li> element, where the `customer.FirstName`, `customer.LastName`, and `customer.Id` placeholders
+     display the respective properties of the customer object passed from the controller. -->
 <!-- Exercise 2-->
 @{
     ViewData["Title"] = "Search for Customer";
+    <!-- Sets the page title to "Search for Customer" using the `ViewData` dictionary. -->
+    <!-- This is dynamically set and accessed with `ViewData["Title"]` below. -->
 }
 
 <h2>@ViewData["Title"]</h2>
+<!-- Displays the title "Search for Customer" inside an <h2> heading using the `ViewData["Title"]`. -->
 
 <form asp-action="Search" method="post">
+    <!-- A form for submitting a customer search request.
+    The `asp-action="Search"` attribute specifies that the form will post its data to the `Search` action method
+    of the current controller when the form is submitted.
+    -->
     <div>
         <label for="id">Enter Customer ID:</label>
+        <!-- Label for the input field, asking users to enter a customer ID. -->
+
         <input type="number" name="id" id="id" />
+        <!-- The input field where the user can enter a customer ID. It has a `type="number"` to allow numeric input only. -->
+
         <button type="submit">Search</button>
+        <!-- A submit button to trigger the form submission and initiate the search. -->
     </div>
 </form>
+<!-- This form will post the entered customer ID to the `Search` action method in the controller when the user clicks "Search". -->

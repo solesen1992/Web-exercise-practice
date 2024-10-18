@@ -1,19 +1,30 @@
-﻿@*
+﻿<!--
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+    This is a reference link for developers enabling MVC in empty projects. The link leads to Microsoft's documentation for more guidance.
+-->
 @{
+    <!-- Razor code block. This can be used to include logic or data preparation, but here it’s an empty block. -->
 }
 
 @{
     ViewData["Title"] = "Search for Customer";
+    <!-- Sets the page title to "Search for Customer" using the ViewData dictionary. -->
 }
 
 <h2>@ViewData["Title"]</h2>
+<!-- The title "Search for Customer" is dynamically set and rendered inside an <h2> heading. -->
 
 <form asp-action="Search" method="post">
+    <!-- This form will post its data to the "Search" action method in the controller when submitted. -->
     <div>
         <label for="id">Enter Customer ID:</label>
+        <!-- Label asking the user to input a Customer ID. The "for" attribute links this label to the input field. -->
+
         <input type="number" name="id" id="id" />
+        <!-- The input field allows the user to enter a customer ID, restricted to numeric values with type="number". -->
+
         <button type="submit">Search</button>
+        <!-- A submit button that triggers the form submission when clicked. -->
     </div>
 </form>
+<!-- The form posts to the "Search" action method in the controller with the customer ID provided by the user. -->

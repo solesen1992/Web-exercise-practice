@@ -1,31 +1,49 @@
 ﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    This Razor view is part of an ASP.NET MVC application and is designed to display the details of a single customer. 
+    The view is strongly typed to the Customer model (@model Exercise_MVCStarter.Models.Customer), meaning it receives 
+    a Customer object from the controller and renders that data in the HTML output.
 *@
+
 @{
+    // This section defines a Razor code block, currently empty.
 }
 
 @model Exercise_MVCStarter.Models.Customer
 
 @{
+    // Another Razor code block.
+    // Here, we are setting a value in the 'ViewData' dictionary to hold the title for the view.
     ViewData["Title"] = "Customer Details";
 }
 
 <h2>@ViewData["Title"]</h2>
+<!-- Outputs the title stored in 'ViewData["Title"]' within an <h2> HTML heading.
+    This will display the text "Customer Details" as the page heading.-->
 
-@if (Model == null)
-{
-    <p>No customer found.</p>
-}
-else
-{
-    <ul>
-        <li><strong>Customer ID:</strong> @Model.Id</li>
-        <li><strong>First Name:</strong> @Model.FirstName</li>
-        <li><strong>Last Name:</strong> @Model.LastName</li>
-    </ul>
-}
+    @if (Model == null)
+    {
+        // This conditional block checks if the 'Model' (the customer object passed to the view) is null.
+        // If no customer was found or passed to the view, the following message will be displayed:
+        <p>No customer found.</p>
+    }
+    else
+    {
+        // If the 'Model' is not null, meaning a valid customer object was passed, the customer's details are displayed.
+        <ul>
+        <!-- List item displaying the customer's ID. -->
+            <li><strong>Customer ID:</strong> @Model.Id</li>
 
-<!-- Go back to customer list link -->
-<p>
-    <a href="@Url.Action("Index", "Customers")">Go back to list</a>
-</p>
+        <!-- List item displaying the customer's first name. -->
+            <li><strong>First Name:</strong> @Model.FirstName</li>
+
+        <!-- List item displaying the customer's last name. -->
+            <li><strong>Last Name:</strong> @Model.LastName</li>
+        </ul>
+    }
+
+    <!-- Go back to customer list link -->
+    <p>
+        <!-- This is an HTML anchor tag (link) that takes the user back to the customer list.
+        The link uses the 'Url.Action' helper method to generate a URL for the 'Index' action in the 'Customers' controller. -->
+        <a href="@Url.Action("Index", "Customers")">Go back to list</a>
+    </p>

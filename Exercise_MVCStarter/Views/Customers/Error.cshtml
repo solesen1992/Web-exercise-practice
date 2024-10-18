@@ -1,36 +1,58 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+    This Razor view is designed to display error messages based on an enum called EnumIdValidity from the Exercise_MVCStarter.Data namespace. 
+    It dynamically selects the error message to display depending on the value of the EnumIdValidity enum passed to the view.
+
+    This view is used for handling error situations based on the ID validity (e.g., when a customer search by ID fails due 
+    to various reasons like missing, invalid, or non-existent ID). It provides a user-friendly error message tailored to each scenario.
 *@
+
 @{
+    // An empty Razor code block, which could be used for server-side logic, but is currently unused in this view.
 }
 
 <!-- ERROR MESSAGES USING ENUMS -->
 @model Exercise_MVCStarter.Data.EnumIdValidity
 
 @{
+    // A Razor code block where we set the page title using the 'ViewData' dictionary.
     ViewData["Title"] = "Error";
 }
 
 <h2>@ViewData["Title"]</h2>
+<!-- Outputs the title "Error" inside an <h2>
+    HTML heading. -->
 
-<p>
-    @switch (Model)
-    {
-        case Exercise_MVCStarter.Data.EnumIdValidity.UnSpecified:
-            <text>ID is missing or not specified.</text>
-            ;
-            break;
-        case Exercise_MVCStarter.Data.EnumIdValidity.Invalid:
-            <text>ID is invalid. Please enter a valid integer ID.</text>
-            ;
-            break;
-        case Exercise_MVCStarter.Data.EnumIdValidity.OkNotFound:
-            <text>Customer not found with the provided ID.</text>
-            ;
-            break;
-        default:
-            <text>An unknown error occurred.</text>
-            ;
-            break;
-    }
-</p>
+    <p>
+        @switch (Model)
+        {
+            // This switch statement checks the value of the 'Model', which is of type 'EnumIdValidity'.
+            // Based on the enum value, different error messages are rendered.
+
+            case Exercise_MVCStarter.Data.EnumIdValidity.UnSpecified:
+                // If the enum value is 'UnSpecified', display the message indicating the ID is missing or not specified.
+                <text>ID is missing or not specified.</text>
+                ;
+                break;
+
+            case Exercise_MVCStarter.Data.EnumIdValidity.Invalid:
+                // If the enum value is 'Invalid', display the message asking the user to enter a valid integer ID.
+                <text>ID is invalid. Please enter a valid integer ID.</text>
+                ;
+                break;
+
+            case Exercise_MVCStarter.Data.EnumIdValidity.OkNotFound:
+                // If the enum value is 'OkNotFound', display the message that the customer with the provided ID was not found.
+                <text>Customer not found with the provided ID.</text>
+                ;
+                break;
+
+            default:
+                // The default case catches any other unspecified values of the enum and displays a generic error message.
+                <text>An unknown error occurred.</text>
+                ;
+                break;
+        }
+    </p>
+    <!-- The switch statement is wrapped in a paragraph tag <p> to display the appropriate error message based on the enum value. -->
