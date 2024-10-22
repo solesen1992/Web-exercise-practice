@@ -1,0 +1,73 @@
+﻿@using Exercise_MVCCRUD.Models
+@using Exercise_MVCCRUD.Data
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Index</h1>
+    <a href="/Students/Create">Create New</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>StudentId</th>
+                <th>StudentName</th>
+                <th>Age</th>
+                <th>Edit</th>
+                <th>Details</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in StudentData.StudentList)
+            {
+                <tr>
+                    <td>@student.StudentId</td>
+                    <td>@student.Studentname</td>
+                    <td>@student.Age</td>
+                    <td><a href="/Students/Edit?studentId=@student.StudentId">Edit</a></td>
+                    <td><a href="/Students/Details?id=@student.StudentId">Details</a></td>
+                    <td><a href="/Students/Delete?id=@student.StudentId">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>
