@@ -4,15 +4,15 @@ namespace Exercise_MVCCRUD.Data
 {
     public class StudentData
     {
-        static IEnumerable<Student> studentList;
+        static List<Student> studentList;
+        //static IEnumerable<Student> studentList;
 
-        public static IEnumerable<Student> StudentList
-        
-
+        //public static IEnumerable<Student> StudentList
+        public static List<Student> StudentList
         {
             get
             {
-                IEnumerable<Student> foundStudents = studentList;
+                //IEnumerable<Student> foundStudents = studentList;
                 if (studentList == null || studentList.Count() < 1)
                 {
                     SetStudentData();
@@ -89,7 +89,7 @@ namespace Exercise_MVCCRUD.Data
                 Student studentToDelete = studentList.FirstOrDefault(stud => stud.StudentId == studentId);
                 if (studentToDelete != null)
                 {
-                    ((List<Student>)studentList).Remove(studentToDelete);
+                    studentList.Remove(studentToDelete); // Removes the student from the list
                 }
             }
         }
