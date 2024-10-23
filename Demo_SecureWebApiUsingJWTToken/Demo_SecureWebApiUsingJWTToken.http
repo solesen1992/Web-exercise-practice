@@ -1,0 +1,6 @@
+@Demo_SecureWebApiUsingJWTToken_HostAddress = http://localhost:5277
+
+GET {{Demo_SecureWebApiUsingJWTToken_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
